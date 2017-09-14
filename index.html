@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html ng-app="ShoppingListCheckOff">
+    <head>
+        <meta charset="utf-8">
+        <script src="angular.min.js"></script>
+        <script src="app.js"></script>
+        <title>semana 2</title>
+         <style>body{ 
+            font-size: 1.2em;}
+        </style>
+
+    </head>
+<body>
+    <h1>Semana 2</h1>
+    <table>
+        <tr>
+            <td>
+                <div ng-controller="ToBuyController as ToBuy" style="margin:20px">
+                    <h1>To buy</h1>
+                     <p ng-if="ToBuy.items.length==0">Everything is bought!</p>
+                    <ol>
+                        <li ng-repeat="item in  ToBuy.items" >
+                            {{item.quantity}}
+                             of {{item.name}}
+                            <button ng-click="ToBuy.buy($index)" >Bougth</button>
+                        </li>
+                    </ol>
+                </div>
+            </td>
+            <td>
+                <div ng-controller="AlreadyBoughtController as Already">
+                    <h1>Already Bought</h1>
+                    <p ng-if="Already.items.length==0">Nothing bought yet</p>
+                    <ol>
+                        <li ng-repeat="item in  Already.items" >
+                            {{item.quantity}}
+                             of {{item.name}}
+                            
+                        </li>
+                    </ol>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
